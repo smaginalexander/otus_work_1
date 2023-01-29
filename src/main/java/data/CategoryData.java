@@ -1,11 +1,14 @@
 package data;
 
 public enum CategoryData {
-    PROGRAMMER("Программирование");
-    private String name;
+    POPULAR_COURSES("Популярные курсы"),
+    SPECIALIZATION("Специализация"),
+    RECOMMENDATIONS("Рекомендации для вас");
+
+    final String name;
 
     CategoryData(String name) {
-        this.name = name();
+        this.name = name;
     }
 
     public String getName(){

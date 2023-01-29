@@ -4,9 +4,11 @@ import annotations.Component;
 import exceptions.ComponentIsNotExist;
 import exceptions.PathIsEmtyException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.interactions.Actions;
 
 public abstract class AbstractComponent<T> {
     protected WebDriver driver;
+
     private String baseUrl = System.getProperty("webDriver.base.url","https://otus.ru");
 
     public AbstractComponent(WebDriver driver) {
