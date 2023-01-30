@@ -25,6 +25,8 @@ public class UIExtension implements BeforeEachCallback, AfterEachCallback, After
         boolean testResult = extensionContext.getExecutionException().isPresent();
         if (testResult) {
             System.out.println("Обнаружена ошибка");
+            driver.close();
+            driver.quit();
         }
     }
 

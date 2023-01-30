@@ -5,17 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ac233c2d-4fff-4ab0-8ab8-d83bb4195c1b" name="Changes" comment="архитектура">
-      <change afterPath="$PROJECT_DIR$/src/main/java/components/CoursesListComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/listenner/Listenner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/ui/Courses_Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/data/CourseData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/AbstractComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/AbstractComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/components/MainMenuComponent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/data/CategoryData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/data/CategoryData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/driver/impl/ChromeWebDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/driver/impl/ChromeWebDriver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/components/CoursesListComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/components/CoursesListComponent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/extensions/UIExtension.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/extensions/UIExtension.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/ui/TestUiCourse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/listenner/Listenner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/listenner/Listenner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ui/Courses_Test.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ui/Courses_Test.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,9 +20,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="AnnotationType" />
         <option value="Class" />
+        <option value="Enum" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -67,7 +63,7 @@
       <recent name="ui" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.Courses_Test.clickOnCourseFilteredByCourseName">
+  <component name="RunManager" selected="JUnit.Courses_Test.clickOnTheNextCourse">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.example.Main" />
       <module name="untitled1" />
@@ -146,8 +142,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.Courses_Test.clickOnCourseFilteredByCourseName" />
         <item itemvalue="JUnit.Courses_Test.clickOnTheNextCourse" />
+        <item itemvalue="JUnit.Courses_Test.clickOnCourseFilteredByCourseName" />
         <item itemvalue="JUnit.Courses_Test" />
         <item itemvalue="JUnit.Courses_Test.clickOnCategory" />
         <item itemvalue="Application.Main" />
@@ -191,11 +187,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/components/CoursesListComponent.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/listenner/Listenner.java</url>
           <line>9</line>

@@ -3,6 +3,7 @@ package ui;
 import annotations.Driver;
 import components.CoursesListComponent;
 import data.CategoryData;
+import data.CourseData;
 import exceptions.PathIsEmtyException;
 import extensions.UIExtension;
 import org.junit.jupiter.api.Test;
@@ -27,7 +28,12 @@ public class Courses_Test {
     @Test
     public void clickOnTheNextCourse() throws PathIsEmtyException {
         new MainPage(driver).open();
-        new CoursesListComponent(driver).getCoursesListText();
+        new CoursesListComponent(driver).clickOnTheNextCourse();
+    }
 
+    @Test
+    public void clickOnTheNLastCourse() throws PathIsEmtyException {
+        new MainPage(driver).open();
+        new CoursesListComponent(driver).clickOnTheNLastCourse();
     }
 }
