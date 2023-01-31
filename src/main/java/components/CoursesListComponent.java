@@ -1,16 +1,17 @@
 package components;
 
 import annotations.Component;
-import data.CategoryData;
 import data.CourseData;
-import driver.impl.IDriver;
-import listenner.Listenner;
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.events.WebDriverEventListener;
 
 import java.time.LocalDate;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 @Component("/")
 public class CoursesListComponent extends AbstractComponent<CoursesListComponent> {
@@ -27,16 +28,18 @@ public class CoursesListComponent extends AbstractComponent<CoursesListComponent
         for (CourseData f : CourseData.values()) {
             if (f.getDate().equals(filterNextDateOfCourses())) {
                 WebElement cours = driver.findElement(By.xpath(String.format(coursXpath, f.getCategory(), f.getName())));
+                System.out.println("ближайший курс "+f.getName()+ "стартует "+ f.getDate());
                 cours.click();
             }
         }
     }
 
-    public void clickOnTheNLastCourse() {
+    public void clickOnTheLastCourse() {
         deletePopup();
         for (CourseData f : CourseData.values()) {
             if (f.getDate().equals(filterLastDateOfCourses())) {
                 WebElement cours = driver.findElement(By.xpath(String.format(coursXpath, f.getCategory(), f.getName())));
+                System.out.println("Последний курс "+f.getName()+ "стартует "+ f.getDate());
                 cours.click();
             }
         }
@@ -59,23 +62,24 @@ public class CoursesListComponent extends AbstractComponent<CoursesListComponent
         for (CourseData f : CourseData.values()) {
             dates.add(LocalDate.parse(f.getDate()));
         }
-        Optional<LocalDate> theNextDateFilter = dates.stream()
+        Optional<LocalDate> theLastDateFilter = dates.stream()
                 .filter(date -> date.isAfter(LocalDate.now()))
                 .max(LocalDate::compareTo);
-        String theNextDate = theNextDateFilter.stream().findFirst().get().toString();
-        return theNextDate;
+        String theLustDate = theLastDateFilter.stream().findFirst().get().toString();
+        return theLustDate;
     }
 
     public void deletePopup() {
         actions.pause(2000).perform();
         WebElement popupCookie = driver.findElement(By.xpath("//div[@class='cookies__margin-block js-cookie']"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].style.display='none'", popupCookie);
-
     }
 
-    public void clickOnCours(CategoryData categoryData, String coursName) {
+    public void clickOnCours(String category, String coursName) {
         deletePopup();
-        WebElement cours = driver.findElement(By.xpath(String.format(coursXpath, categoryData.getName(), coursName)));
+        WebElement cours = driver.findElement(By.xpath(String.format(coursXpath, category, coursName)));
+        //При использовании Actions, click() не добавляет стили
+        //actions.moveToElement(cours).click().perform();
         cours.click();
     }
 

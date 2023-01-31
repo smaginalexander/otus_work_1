@@ -67,6 +67,7 @@ public class UIExtension implements BeforeEachCallback, AfterEachCallback, After
         if (driver != null) {
             driver.close();
             driver.quit();
+            System.out.println("тест прошел успешно");
         }
     }
 }
