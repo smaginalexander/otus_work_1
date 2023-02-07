@@ -7,7 +7,7 @@ public class Listenner implements WebDriverEventListener {
 
     @Override
     public void beforeClickOn(WebElement element, WebDriver driver) {
-        ((JavascriptExecutor) driver).executeScript("arguments[0].style[\"boxShadow\"] = \"0px 10px 20px 5px rgb(0 0 100 / 50%)\";", element);
+        ((JavascriptExecutor)driver).executeScript("arguments[0].style.border='3px solid red;'", element);
     }
 
     @Override

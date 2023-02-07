@@ -28,8 +28,10 @@ public class CoursesListComponent extends AbstractComponent<CoursesListComponent
                 WebElement cours = driver.findElement(By.xpath(String.format(coursXpath, courseData.getCategory(), courseData.getName())));
                 System.out.println("ближайший курс " + courseData.getName() + "стартует " + courseData.getDate());
                 cours.click();
+                return;
             }
         }
+
     }
 
     public void clickOnTheLastCourse() {
@@ -69,9 +71,11 @@ public class CoursesListComponent extends AbstractComponent<CoursesListComponent
     }
 
     public void deletePopup() {
-        actions.pause(2000).perform();
-        WebElement popupCookie = driver.findElement(By.xpath("//div[@class='cookies__margin-block js-cookie']"));
+        actions.pause(3000).perform();
+        WebElement popupCookie = driver.findElement(By.xpath("//div[contains(@class, 'cookies__margin-block')]"));
+        WebElement helpPopup = driver.findElement(By.xpath("//jdiv[@id='jvlabelWrap']"));
         ((JavascriptExecutor) driver).executeScript("arguments[0].style.display='none'", popupCookie);
+        ((JavascriptExecutor) driver).executeScript("arguments[0].style.display='none'", helpPopup);
     }
 
     public void clickOnCours(String category, String coursName) {
