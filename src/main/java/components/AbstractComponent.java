@@ -8,11 +8,12 @@ import org.openqa.selenium.interactions.Actions;
 
 public abstract class AbstractComponent<T> {
     protected WebDriver driver;
-
-    private String baseUrl = System.getProperty("webDriver.base.url","https://otus.ru");
+    protected Actions actions;
+    private String baseUrl = System.getProperty("webDriver.base.url", "https://otus.ru");
 
     public AbstractComponent(WebDriver driver) {
         this.driver = driver;
+        this.actions = new Actions(driver);
     }
 
     private String getPath() throws ComponentIsNotExist {
