@@ -11,6 +11,4 @@ public class MainPage extends AbstractPage<MainPage> {
     public MainPage(GuiceScoped guiceScoped) {
         super(guiceScoped);
     }
-
-
 }

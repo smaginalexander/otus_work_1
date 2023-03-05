@@ -1,18 +1,21 @@
 package ru.otus.components;
 
+import com.google.inject.Inject;
+import org.openqa.selenium.interactions.Actions;
 import ru.otus.annotations.Component;
 import ru.otus.exceptions.ComponentIsNotExist;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.interactions.Actions;
+import ru.otus.support.GuiceScoped;
 
 public abstract class AbstractComponent<T> {
-    protected WebDriver driver;
+    protected GuiceScoped guiceScoped;
+
     protected Actions actions;
     private String baseUrl = System.getProperty("webDriver.base.url", "https://otus.ru");
 
-    public AbstractComponent(WebDriver driver) {
-        this.driver = driver;
-        this.actions = new Actions(driver);
+    @Inject
+    public AbstractComponent(GuiceScoped guiceScoped) {
+        this.guiceScoped = guiceScoped;
+        this.actions = new Actions(guiceScoped.driver);
     }
 
     private String getPath() throws ComponentIsNotExist {
@@ -25,9 +28,11 @@ public abstract class AbstractComponent<T> {
     }
 
     public T open() throws ComponentIsNotExist {
-        driver.get(baseUrl + getPath());
+        guiceScoped.driver.get(baseUrl + getPath());
         return (T) this;
     }
 
+    }
 
-}
+
+

@@ -2,7 +2,6 @@ package ru.otus.pages;
 
 import ru.otus.annotations.Path;
 import ru.otus.exceptions.PathIsEmtyException;
-import org.openqa.selenium.WebDriver;
 import ru.otus.support.GuiceScoped;
 
 public abstract class AbstractPage<T> {
