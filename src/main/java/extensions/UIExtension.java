@@ -13,6 +13,7 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
+import java.net.MalformedURLException;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -45,7 +46,7 @@ public class UIExtension implements BeforeEachCallback, AfterEachCallback, After
     }
 
     @Override
-    public void beforeEach(ExtensionContext extensionContext) {
+    public void beforeEach(ExtensionContext extensionContext) throws MalformedURLException {
         driver = new DriverFactory().getDriver();
         driver.register(new Listenner());
         Set<Field> fields = getAnnotatedFields(Driver.class, extensionContext);
