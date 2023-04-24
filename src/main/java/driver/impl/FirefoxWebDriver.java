@@ -36,6 +36,8 @@ public class FirefoxWebDriver implements IDriver {
                 downloadLocalWebDriver(DriverManagerType.FIREFOX);
             } catch (DriverTypeNotSupported ex) {
                 ex.printStackTrace();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
             return new FirefoxDriver(firefoxOptions);
         } else

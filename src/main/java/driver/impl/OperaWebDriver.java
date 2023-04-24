@@ -35,6 +35,8 @@ public class OperaWebDriver implements IDriver {
                 downloadLocalWebDriver(DriverManagerType.OPERA);
             } catch (DriverTypeNotSupported ex) {
                 ex.printStackTrace();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
 
             return new OperaDriver(operaOptions);

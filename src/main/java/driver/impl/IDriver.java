@@ -2,7 +2,6 @@ package driver.impl;
 
 import exceptions.DriverTypeNotSupported;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import io.github.bonigarcia.wdm.config.Config;
 import io.github.bonigarcia.wdm.config.DriverManagerType;
 import org.openqa.selenium.WebDriver;
 
@@ -23,25 +22,23 @@ public interface IDriver {
         }
     }
 
-    default void downloadLocalWebDriver(DriverManagerType driverType) throws DriverTypeNotSupported {
-        Config wdmConfig = WebDriverManager.globalConfig();
-        wdmConfig.setAvoidBrowserDetection(true);
+    default void downloadLocalWebDriver(DriverManagerType driverType) throws Exception {
 
         String browserVersion = System.getProperty("browser.version", "");
 
         if (!browserVersion.isEmpty()) {
             switch (driverType) {
                 case CHROME:
-                    wdmConfig.setChromeDriverVersion(browserVersion);
+                    WebDriverManager.chromedriver().config().setChromeDriverVersion(browserVersion);
                     break;
                 case OPERA:
-                    wdmConfig.setOperaDriverVersion(browserVersion);
+                    WebDriverManager.operadriver().config().setOperaDriverVersion(browserVersion);
                     break;
                 case FIREFOX:
-                    wdmConfig.setFirefoxVersion(browserVersion);
+                    WebDriverManager.chromedriver().config().setFirefoxVersion(browserVersion);
                     break;
                 default:
-                    throw new DriverTypeNotSupported(driverType);
+                    throw new Exception(String.valueOf(driverType));
             }
         }
 

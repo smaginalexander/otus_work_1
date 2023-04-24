@@ -38,6 +38,8 @@ public class ChromeWebDriver implements IDriver {
                 downloadLocalWebDriver(DriverManagerType.CHROME);
             } catch (DriverTypeNotSupported ex) {
                 ex.printStackTrace();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
 
             return new ChromeDriver(chromeOptions);
