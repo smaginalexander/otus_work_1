@@ -3,14 +3,18 @@ package extensions;
 
 import annotations.Driver;
 import driver.DriverFactory;
+import io.qameta.allure.Allure;
 import listenner.Listenner;
 import org.junit.jupiter.api.extension.AfterEachCallback;
 import org.junit.jupiter.api.extension.AfterTestExecutionCallback;
 import org.junit.jupiter.api.extension.BeforeEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
+import java.io.ByteArrayInputStream;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Field;
 import java.net.MalformedURLException;
@@ -25,9 +29,7 @@ public class UIExtension implements BeforeEachCallback, AfterEachCallback, After
     public void afterTestExecution(ExtensionContext extensionContext) throws Exception {
         boolean testResult = extensionContext.getExecutionException().isPresent();
         if (testResult) {
-            System.out.println("Обнаружена ошибка");
-            driver.close();
-            driver.quit();
+            Allure.addAttachment("Failed screenshot", new ByteArrayInputStream(((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES)));
         }
     }
 
