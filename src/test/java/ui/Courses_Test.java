@@ -29,12 +29,12 @@ public class Courses_Test {
         Map<String, Object> selenoidOptions = new HashMap<>();
         selenoidOptions.put("enableVNC", true);
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("browserName", "chrome");
-        capabilities.setCapability("browserVersion", "109.0");
+        capabilities.setCapability("browserName", System.getProperty("browser"));
+        capabilities.setCapability("browserVersion", System.getProperty("browser.version"));
         capabilities.setCapability("enableVideo", false);
         capabilities.setCapability("selenoid:options", selenoidOptions);
         driver = new RemoteWebDriver(
-                URI.create("http://127.0.0.1:4444/wd/hub").toURL(),
+                URI.create(String.format("%s/wd/hub", System.getProperty("webdriver.remote.url"))).toURL(),
                 capabilities
         );
     }
