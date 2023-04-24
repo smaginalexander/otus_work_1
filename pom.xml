@@ -30,7 +30,7 @@
         <webdriver.timeouts.implicitlywait>5000</webdriver.timeouts.implicitlywait>
 
         <surefire.plugin.version>2.22.2</surefire.plugin.version>
-        <maven.compiler.plugin.version>3.8.1</maven.compiler.plugin.version>
+        <maven.compiler.plugin.version>1.8</maven.compiler.plugin.version>
 
         <aspectj.version>1.9.6</aspectj.version>
 
@@ -193,8 +193,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven.compiler.plugin.version}</version>
                 <configuration>
-                    <source>9</source>
-                    <target>9</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                     <showDeprecation>true</showDeprecation>
                 </configuration>
             </plugin>
