@@ -14,5 +14,21 @@ timeout(60) {
                 currentBuild.result = 'UNSTABLE'
             }
         }
+        stage('Publish artifacts') {
+            archiveArtifacts artifacts: '**/target/**/*',
+                    allowEmptyArchive: true,
+                    fingerprint: true,
+                    onlyIfSuccessful: true
+            junit testResults: '**/target/**/*.xml', skipPublishingChecks: true
+        }
+        stage('Publish Junit Report') {
+            allure([
+                    includeProperties: false,
+                    jdk: '',
+                    properties: [],
+                    reportBuildPolicy: 'ALWAYS',
+                    results: [[path: 'allure-results']]
+            ])
+        }
     }
 }
