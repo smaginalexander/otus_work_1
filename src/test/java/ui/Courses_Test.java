@@ -23,23 +23,6 @@ public class Courses_Test {
     @Driver
     protected WebDriver driver;
 
-//  start test on selenoid
-    @BeforeEach
-    void setupTest() throws MalformedURLException {
-        Map<String, Object> selenoidOptions = new HashMap<>();
-        selenoidOptions.put("enableVNC", true);
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("browserName", System.getProperty("browser"));
-        capabilities.setCapability("browserVersion", System.getProperty("browser.version"));
-        capabilities.setCapability("enableVideo", false);
-        capabilities.setCapability("selenoid:options", selenoidOptions);
-        driver = new RemoteWebDriver(
-                URI.create(String.format("%s/wd/hub", System.getProperty("webdriver.remote.url"))).toURL(),
-                capabilities
-        );
-    }
-
-
     @Test
     //    Клик по курсу, найденному по названию
     public void clickOnCourseFilteredByCourseName() throws PathIsEmtyException, MalformedURLException {
