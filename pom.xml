@@ -22,7 +22,7 @@
         <thread.count>32</thread.count>
 
         <browser>chrome</browser>
-        <browser.version>107.0</browser.version>
+        <browser.version>109.0</browser.version>
         <webdriver.base.url>https://otus.ru</webdriver.base.url>
         <webdriver.remote.url>http://127.0.0.1:4444</webdriver.remote.url>
         <test.project.language>RU</test.project.language>
